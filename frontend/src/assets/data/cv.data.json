@@ -191,60 +191,60 @@
       "category": { "tr": "Yapay Zeka", "en": "Artificial Intelligence" },
       "icon": "sparkles",
       "items": [
-        { "name": "OpenAI API (GPT-4)", "level": 88 },
-        { "name": "LLM Entegrasyonu", "level": 85 },
-        { "name": "Prompt Engineering", "level": 85 },
-        { "name": "AI Destekli Özellikler", "level": 82 }
+        { "name": "OpenAI API (GPT-4)" },
+        { "name": "LLM Entegrasyonu" },
+        { "name": "Prompt Engineering" },
+        { "name": "AI Destekli Özellikler" }
       ]
     },
     {
       "category": { "tr": "Backend", "en": "Backend" },
       "icon": "server",
       "items": [
-        { "name": ".NET Core", "level": 92 },
-        { "name": "ASP.NET MVC", "level": 88 },
-        { "name": "C#", "level": 90 },
-        { "name": "Web API", "level": 90 },
-        { "name": "SignalR", "level": 80 }
+        { "name": ".NET Core" },
+        { "name": "ASP.NET MVC" },
+        { "name": "C#" },
+        { "name": "Web API" },
+        { "name": "SignalR" }
       ]
     },
     {
       "category": { "tr": "Frontend", "en": "Frontend" },
       "icon": "layout",
       "items": [
-        { "name": "Angular (v18)", "level": 90 },
-        { "name": "AngularJS", "level": 80 },
-        { "name": "React Native", "level": 72 },
-        { "name": "TypeScript", "level": 88 },
-        { "name": "HTML5 / CSS3", "level": 88 }
+        { "name": "Angular (v18)" },
+        { "name": "AngularJS" },
+        { "name": "React Native" },
+        { "name": "TypeScript" },
+        { "name": "HTML5 / CSS3" }
       ]
     },
     {
       "category": { "tr": "Veritabanı", "en": "Database" },
       "icon": "database",
       "items": [
-        { "name": "SQL Server", "level": 88 },
-        { "name": "Entity Framework", "level": 86 },
-        { "name": "Redis", "level": 70 }
+        { "name": "SQL Server" },
+        { "name": "Entity Framework" },
+        { "name": "Redis" }
       ]
     },
     {
       "category": { "tr": "Mimari", "en": "Architecture" },
       "icon": "blocks",
       "items": [
-        { "name": "Clean Architecture", "level": 86 },
-        { "name": "Mikroservis", "level": 80 },
-        { "name": "CQRS", "level": 75 },
-        { "name": "SOLID", "level": 88 }
+        { "name": "Clean Architecture" },
+        { "name": "Mikroservis" },
+        { "name": "CQRS" },
+        { "name": "SOLID" }
       ]
     },
     {
       "category": { "tr": "DevOps & Bulut", "en": "DevOps & Cloud" },
       "icon": "cloud",
       "items": [
-        { "name": "Docker", "level": 78 },
-        { "name": "Microsoft Azure", "level": 76 },
-        { "name": "Git", "level": 88 }
+        { "name": "Docker" },
+        { "name": "Microsoft Azure" },
+        { "name": "Git" }
       ]
     }
   ],

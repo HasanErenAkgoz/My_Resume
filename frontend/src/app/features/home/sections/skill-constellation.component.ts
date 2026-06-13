@@ -15,7 +15,6 @@ const CATEGORY_COLORS = [0x06d7f0, 0xff3df0, 0xa855f7, 0x39ff9e, 0xffb13d, 0x4f8
 
 interface NodeMeta {
   name: string;
-  level: number;
   category: string;
 }
 
@@ -156,12 +155,12 @@ export class SkillConstellationComponent implements AfterViewInit, OnDestroy {
         const pos = hub
           .clone()
           .add(new THREE.Vector3(Math.cos(a) * r, Math.sin(a) * r, (Math.random() - 0.5) * 1.6));
-        const size = 0.18 + (item.level / 100) * 0.32;
+        const size = 0.34;
         const mat = new THREE.MeshBasicMaterial({ color });
         const mesh = new THREE.Mesh(new THREE.SphereGeometry(size, 16, 16), mat);
         mesh.position.copy(pos);
         root.add(mesh);
-        nodeMeshes.push({ mesh, meta: { name: item.name, level: item.level, category: group.category[lang] } });
+        nodeMeshes.push({ mesh, meta: { name: item.name, category: group.category[lang] } });
 
         // Glow halo
         const halo = new THREE.Mesh(
@@ -233,7 +232,7 @@ export class SkillConstellationComponent implements AfterViewInit, OnDestroy {
         if (hovered) {
           hovered.scale.setScalar(1.5);
           const meta = nodeMeshes.find((n) => n.mesh === hovered)?.meta;
-          if (meta) this.zone.run(() => (this.tipText = `${meta.name} · ${meta.level}`));
+          if (meta) this.zone.run(() => (this.tipText = meta.name));
         } else {
           this.zone.run(() => (this.tipText = ''));
         }

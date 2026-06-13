@@ -77,8 +77,6 @@ export interface CaseStudy {
 
 export interface SkillItem {
   name: string;
-  /** 0-100 proficiency, used for the bar/level indicator. */
-  level: number;
 }
 
 export interface SkillGroup {

@@ -34,17 +34,9 @@ import { SkillConstellationComponent } from './skill-constellation.component';
           @for (group of cv.skills; track group.icon) {
             <article class="card glass glass-hover" appReveal>
               <h3 class="cat">{{ group.category | loc: lang() }}</h3>
-              <ul class="items">
+              <ul class="tags">
                 @for (s of group.items; track s.name) {
-                  <li class="item">
-                    <div class="meta">
-                      <span class="name">{{ s.name }}</span>
-                      <span class="lvl mono">{{ s.level }}</span>
-                    </div>
-                    <div class="bar decor-only" aria-hidden="true">
-                      <span [style.width.%]="s.level"></span>
-                    </div>
-                  </li>
+                  <li class="tag">{{ s.name }}</li>
                 }
               </ul>
             </article>
@@ -93,35 +85,25 @@ import { SkillConstellationComponent } from './skill-constellation.component';
         margin: 0 0 1rem;
         color: var(--neon-cyan);
       }
-      .items {
+      .tags {
         display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
-      .meta {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.9rem;
-      }
-      .name {
+      .tag {
+        font-size: 0.85rem;
         color: var(--text-1);
-      }
-      .lvl {
-        color: var(--text-2);
-        font-size: 0.78rem;
-      }
-      .bar {
-        height: 5px;
+        background: rgba(6, 215, 240, 0.08);
+        border: 1px solid var(--border-soft);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.07);
-        margin-top: 0.3rem;
-        overflow: hidden;
+        padding: 0.35rem 0.8rem;
+        transition: border-color 0.2s ease, color 0.2s ease;
       }
-      .bar span {
-        display: block;
-        height: 100%;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+      .card:hover .tag {
+        border-color: var(--border-strong);
       }
     `,
   ],
