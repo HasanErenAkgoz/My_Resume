@@ -99,7 +99,7 @@ export class GithubComponent implements OnInit {
   private readonly locale = inject(LocaleService);
   readonly lang = this.locale.lang;
 
-  readonly username = 'ErenAkgoz';
+  readonly username = 'HasanErenAkgoz';
   readonly profileUrl = this.cvService.getCv().profile.contact.github;
   readonly chartUrl = `https://ghchart.rshah.org/06d7f0/${this.username}`;
   readonly user = signal<GhUser | null>(null);

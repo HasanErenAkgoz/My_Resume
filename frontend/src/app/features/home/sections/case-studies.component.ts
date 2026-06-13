@@ -17,7 +17,7 @@ import { RevealDirective } from '../../../shared/reveal.directive';
         @for (cs of cv.caseStudies; track cs.id) {
           <article class="card glass glass-hover holo-edge" appReveal>
             <header class="head">
-              <span class="badge mono">{{ cs.company }} · {{ cs.period }}</span>
+              <span class="badge mono">{{ companyLabel(cs.company) }} · {{ cs.period }}</span>
               <h3>{{ cs.title | loc: lang() }}</h3>
             </header>
 
@@ -132,4 +132,8 @@ export class CaseStudiesComponent {
   private readonly locale = inject(LocaleService);
   readonly cv = this.cvService.getCv();
   readonly lang = this.locale.lang;
+
+  companyLabel(company: string | { tr: string; en: string }): string {
+    return typeof company === 'string' ? company : company[this.lang()];
+  }
 }

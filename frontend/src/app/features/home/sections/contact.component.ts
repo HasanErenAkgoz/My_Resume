@@ -42,9 +42,9 @@ import { RevealDirective } from '../../../shared/reveal.directive';
           rel="noopener"
           (click)="track()"
         >
-          <span class="ic mono">{{ '{ }' }}</span>
+          <span class="ic mono">{{ '{}' }}</span>
           <span class="lbl">{{ 'viewGithub' | ui: lang() }}</span>
-          <span class="val mono">/ErenAkgoz</span>
+          <span class="val mono">/HasanErenAkgoz</span>
         </a>
         <a class="card glass glass-hover holo-edge" [href]="'tel:' + cv.profile.contact.phone">
           <span class="ic mono">☏</span>
@@ -68,7 +68,8 @@ import { RevealDirective } from '../../../shared/reveal.directive';
         gap: 0.4rem;
       }
       .ic {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
+        line-height: 1;
         color: var(--neon-cyan);
         width: 42px;
         height: 42px;
@@ -77,6 +78,7 @@ import { RevealDirective } from '../../../shared/reveal.directive';
         border-radius: 12px;
         background: rgba(6, 215, 240, 0.1);
         border: 1px solid var(--border-soft);
+        overflow: hidden;
       }
       .lbl {
         font-family: var(--font-display);

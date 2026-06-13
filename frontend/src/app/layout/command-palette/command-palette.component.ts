@@ -132,7 +132,7 @@ export class CommandPaletteComponent {
   readonly active = signal(0);
 
   private readonly commands: Command[] = [
-    { id: 'cases', label: { tr: 'Vaka Çalışmaları', en: 'Case Studies' }, hint: '#cases', run: () => this.scrollTo('cases') },
+    { id: 'cases', label: { tr: 'Öne Çıkan Projeler', en: 'Featured Projects' }, hint: '#cases', run: () => this.scrollTo('cases') },
     { id: 'experience', label: { tr: 'Deneyim', en: 'Experience' }, hint: '#experience', run: () => this.scrollTo('experience') },
     { id: 'skills', label: { tr: 'Yetkinlikler', en: 'Skills' }, hint: '#skills', run: () => this.scrollTo('skills') },
     { id: 'contact', label: { tr: 'İletişim', en: 'Contact' }, hint: '#contact', run: () => this.scrollTo('contact') },

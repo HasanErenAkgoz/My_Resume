@@ -4,18 +4,18 @@
     "photo": "/assets/images/profile.webp",
     "initials": "HA",
     "title": {
-      "tr": "Full Stack Yazılım Geliştiricisi · Yapay Zeka Entegrasyonu",
-      "en": "Full Stack Software Developer · AI Integration"
+      "tr": "Full Stack Yazılım Geliştiricisi · Yapay Zeka & LLM Entegrasyonu",
+      "en": "Full Stack Software Developer · AI & LLM Integration"
     },
     "summary": {
-      "tr": "4 yılı aşkın deneyime sahip Full Stack Yazılım Geliştiricisiyim. OpenAI API ve LLM tabanlı özellikleri kurumsal SaaS ve mobil platformlara entegre ediyorum. Ağırlıklı olarak .NET Core, Angular ve React Native ile kurumsal uygulamalar, SaaS platformları ve ERP sistemleri geliştiriyorum. RESTful API tasarımı, mikroservis mimarisi, Clean Code prensipleri ve Agile metodolojileri konusunda güçlü bir altyapıya sahibim.",
-      "en": "Full Stack Software Developer with 4+ years of experience. I integrate OpenAI API and LLM-based features into enterprise SaaS and mobile platforms. I build enterprise applications, SaaS platforms and ERP systems primarily with .NET Core, Angular and React Native. I have a strong foundation in RESTful API design, microservice architecture, Clean Code principles and Agile methodologies."
+      "tr": "Yapay zeka odaklı, 4 yılı aşkın deneyime sahip bir Full Stack Yazılım Geliştiricisiyim. OpenAI API (GPT-4) ve LLM tabanlı özellikleri kurumsal SaaS ürünlerine entegre ediyor, prompt engineering ile üretime hazır yapay zeka destekli özellikler geliştiriyorum. Çekirdek stack'im .NET Core ve Angular; RESTful API tasarımı, gerçek zamanlı sistemler (SignalR), Clean Architecture ve SOLID prensipleriyle sürdürülebilir ve ölçeklenebilir uygulamalar kuruyorum.",
+      "en": "AI-focused Full Stack Software Developer with 4+ years of experience. I integrate OpenAI API (GPT-4) and LLM-based features into enterprise SaaS products, building production-ready AI-powered features through prompt engineering. My core stack is .NET Core and Angular; I build maintainable, scalable applications with RESTful API design, real-time systems (SignalR), Clean Architecture and SOLID principles."
     },
     "contact": {
       "email": "HasanErenAkgz@gmail.com",
       "phone": "+90 538 837 88 54",
       "linkedin": "https://linkedin.com/in/ErenAkgoz",
-      "github": "https://github.com/ErenAkgoz",
+      "github": "https://github.com/HasanErenAkgoz",
       "location": { "tr": "İstanbul, Türkiye", "en": "Istanbul, Turkey" }
     }
   },
@@ -47,8 +47,8 @@
           "en": "Designing dynamic UIs with AngularJS and building RESTful API architecture with .NET Web API."
         },
         {
-          "tr": "OpenAI API (GPT-4) entegrasyonu ile otomatik geri bildirim analizi, akıllı puanlama önerileri ve doğal dil tabanlı raporlama gibi yapay zeka destekli özellikler geliştiriyorum.",
-          "en": "Developing AI-powered features with OpenAI API (GPT-4): automated feedback analysis, smart scoring suggestions and natural-language reporting."
+          "tr": "OpenAI API (GPT-4) entegrasyonu ile ürünlere yapay zeka destekli özellikler geliştiriyorum.",
+          "en": "Building AI-powered features into products through OpenAI API (GPT-4) integration."
         },
         {
           "tr": "Prompt engineering teknikleri uygulayarak LLM çıktılarını iş gereksinimlerine göre özelleştiriyor, AI özelliklerini mevcut .NET backend altyapısına entegre ediyorum.",
@@ -114,27 +114,27 @@
   ],
   "caseStudies": [
     {
-      "id": "feedback4e-ai",
-      "title": { "tr": "GPT-4 ile Otomatik Geri Bildirim Analizi", "en": "Automated Feedback Analysis with GPT-4" },
-      "company": "Feedback4e",
-      "period": "2025",
+      "id": "cv-ai-assistant",
+      "title": { "tr": "Bu CV Sitesinin AI Asistanı (RAG)", "en": "AI Assistant for this CV Site (RAG)" },
+      "company": { "tr": "Kişisel Proje", "en": "Personal Project" },
+      "period": "2026",
       "problem": {
-        "tr": "360 derece geri bildirim platformunda yöneticiler yüzlerce serbest metin geri bildirimini manuel okuyup puanlamak zorundaydı; bu süreç yavaş ve tutarsızdı.",
-        "en": "On a 360-degree feedback platform, managers had to manually read and score hundreds of free-text responses — a slow and inconsistent process."
+        "tr": "İK ve işe alım yöneticileri bir CV'yi baştan sona okumak yerine doğrudan soru sorup hızlı cevap almak ister; statik bir CV bunu sağlamaz.",
+        "en": "Recruiters and hiring managers would rather ask direct questions and get quick answers than read a whole CV end to end — a static CV can't do that."
       },
       "solution": {
-        "tr": "OpenAI GPT-4'ü .NET Web API arkasına entegre ettim. Prompt engineering ile geri bildirimleri özetleyen, duygu analizi yapan ve iş gereksinimlerine uygun puanlama önerileri üreten bir katman kurdum. Sonuçlar SignalR ile gerçek zamanlı olarak arayüze aktarıldı.",
-        "en": "Integrated OpenAI GPT-4 behind a .NET Web API. Using prompt engineering, I built a layer that summarizes feedback, performs sentiment analysis and produces scoring suggestions aligned with business rules. Results stream to the UI in real time via SignalR."
+        "tr": ".NET 8 + SignalR ile yalnızca CV verisini bağlam olarak alan (RAG) bir OpenAI asistanı geliştirdim. Yanıtlar token-token gerçek zamanlı stream ediliyor, sistem promptu modeli CV dışına çıkmaktan alıkoyuyor (anti-halüsinasyon) ve IP bazlı saatlik rate limit ile kötüye kullanım engelleniyor.",
+        "en": "Built an OpenAI assistant with .NET 8 + SignalR that uses only the CV data as context (RAG). Answers stream token-by-token in real time, a strict system prompt keeps the model from going beyond the CV (anti-hallucination), and per-IP hourly rate limiting prevents abuse."
       },
       "impact": {
-        "tr": "Manuel inceleme süresi ciddi ölçüde azaldı, puanlama tutarlılığı arttı ve doğal dil tabanlı raporlama ile yöneticiler içgörülere çok daha hızlı ulaştı.",
-        "en": "Manual review time dropped significantly, scoring consistency improved, and natural-language reporting let managers reach insights far faster."
+        "tr": "Ziyaretçiler \"bu aday X yapabilir mi?\" sorusunun cevabını saniyeler içinde alıyor; CV pasif bir belgeden etkileşimli bir deneyime dönüştü. Asistan bu sitede canlı olarak denenebilir.",
+        "en": "Visitors get answers to \"can this candidate do X?\" in seconds; the CV turns from a passive document into an interactive experience. The assistant can be tried live on this very site."
       },
-      "tech": ["OpenAI GPT-4", ".NET Core", "Web API", "SignalR", "Prompt Engineering", "SQL Server"],
+      "tech": ["OpenAI API", ".NET 8", "SignalR", "RAG", "Prompt Engineering", "Angular"],
       "metrics": [
-        { "label": { "tr": "Manuel inceleme", "en": "Manual review" }, "value": "↓" },
-        { "label": { "tr": "Gerçek zamanlı", "en": "Real-time" }, "value": "SignalR" },
-        { "label": { "tr": "Model", "en": "Model" }, "value": "GPT-4" }
+        { "label": { "tr": "Yaklaşım", "en": "Approach" }, "value": "RAG" },
+        { "label": { "tr": "Akış", "en": "Streaming" }, "value": "SignalR" },
+        { "label": { "tr": "Halüsinasyon", "en": "Hallucination" }, "value": "0" }
       ]
     },
     {
@@ -194,6 +194,7 @@
         { "name": "OpenAI API (GPT-4)" },
         { "name": "LLM Entegrasyonu" },
         { "name": "Prompt Engineering" },
+        { "name": "RAG (Retrieval-Augmented Generation)" },
         { "name": "AI Destekli Özellikler" }
       ]
     },

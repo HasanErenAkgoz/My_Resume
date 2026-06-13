@@ -66,7 +66,7 @@ export interface CaseMetric {
 export interface CaseStudy {
   id: string;
   title: Localized;
-  company: string;
+  company: string | Localized;
   period: string;
   problem: Localized;
   solution: Localized;

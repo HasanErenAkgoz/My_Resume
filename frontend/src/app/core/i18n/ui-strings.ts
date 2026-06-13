@@ -13,15 +13,15 @@ export const UI = {
   noticePeriod: { tr: 'İhbar süresi', en: 'Notice period' },
 
   navSummary: { tr: 'Özet', en: 'Summary' },
-  navCases: { tr: 'Vaka Çalışmaları', en: 'Case Studies' },
+  navCases: { tr: 'Öne Çıkan Projeler', en: 'Featured Projects' },
   navExperience: { tr: 'Deneyim', en: 'Experience' },
   navSkills: { tr: 'Yetkinlikler', en: 'Skills' },
   navEducation: { tr: 'Eğitim', en: 'Education' },
   navContact: { tr: 'İletişim', en: 'Contact' },
 
-  sectionCases: { tr: 'Vaka Çalışmaları', en: 'Case Studies' },
+  sectionCases: { tr: 'Öne Çıkan Projeler', en: 'Featured Projects' },
   sectionCasesSub: { tr: 'Ne yaptım, neden ve sonucu', en: 'What I built, why, and the outcome' },
-  sectionExperience: { tr: 'Görev Kayıtları', en: 'Mission Logs' },
+  sectionExperience: { tr: 'Kariyer Yolculuğu', en: 'Career Journey' },
   sectionSkills: { tr: 'Teknik Yetkinlikler', en: 'Technical Skills' },
   sectionGithub: { tr: 'GitHub Aktivitesi', en: 'GitHub Activity' },
   sectionEducation: { tr: 'Eğitim', en: 'Education' },
