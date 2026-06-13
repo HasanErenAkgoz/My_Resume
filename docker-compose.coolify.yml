@@ -1,0 +1,40 @@
+# Coolify deployment variant — no host port bindings.
+# Coolify Traefik routes your domain → proxy:8080 (WebSocket / SignalR supported).
+# In Coolify UI: Build Pack = Docker Compose, file = docker-compose.coolify.yml
+# Assign the public domain to the **proxy** service on port **8080**.
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    expose:
+      - "4000"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - AI_CHAT_RATE_LIMIT_PER_HOUR=${AI_CHAT_RATE_LIMIT_PER_HOUR:-10}
+    expose:
+      - "8080"
+    restart: unless-stopped
+
+  proxy:
+    image: nginx:1.27-alpine
+    depends_on:
+      - web
+      - api
+    expose:
+      - "8080"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
