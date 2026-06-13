@@ -100,7 +100,7 @@ Bu adım kritik.
 
 1. Resource ayarlarında **Domains** / **Network**
 2. Domain ekle:
-   - Kendi domain: `hasaneren.dev`
+   - Kendi domain: `erenakgoz.dev`
    - veya Coolify’ın verdiği geçici URL
 3. **Servis:** `proxy` (web veya api değil!)
 4. **Port:** `8080`

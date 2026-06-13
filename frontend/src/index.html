@@ -12,8 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hasan Eren Akgöz — Full Stack Developer · AI Integration">
   <meta property="og:description" content="4+ years · Feedback4e · .NET · Angular · OpenAI">
-  <meta property="og:url" content="https://hasaneren.dev">
-  <meta property="og:image" content="https://hasaneren.dev/assets/images/og-banner.svg">
+  <meta property="og:url" content="https://erenakgoz.dev">
+  <meta property="og:image" content="https://erenakgoz.dev/assets/images/og-banner.svg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -24,6 +24,29 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet">
+
+  <!-- Hide SSR content until boot intro finishes (first visit per session). -->
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem('cv-boot-shown') === '1') return;
+        if (/\bmode=scan\b/.test(location.search)) return;
+        if (localStorage.getItem('cv-mode') === 'scan') return;
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.documentElement.classList.add('boot-pending');
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    html.boot-pending body {
+      background: #050410;
+    }
+    html.boot-pending app-header,
+    html.boot-pending #main,
+    html.boot-pending app-footer {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body class="explore-mode">
   <app-root></app-root>

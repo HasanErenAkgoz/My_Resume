@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CvData } from '../models/cv.model';
 
-const SITE_URL = 'https://hasaneren.dev';
+const SITE_URL = 'https://erenakgoz.dev';
 const JSON_LD_ID = 'cv-jsonld';
 
 /**

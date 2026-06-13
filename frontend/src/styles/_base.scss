@@ -11,6 +11,16 @@ body {
   min-height: 100%;
 }
 
+html.boot-pending body {
+  background: #050410;
+}
+
+html.boot-pending app-header,
+html.boot-pending #main,
+html.boot-pending app-footer {
+  visibility: hidden;
+}
+
 body {
   font-family: var(--font-body);
   font-size: 18px;

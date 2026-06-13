@@ -51,6 +51,13 @@ node dist/frontend/server/server.mjs   # http://localhost:4000
 docker compose up --build   # http://localhost:8080 (nginx → SSR + .NET hub)
 ```
 
+**Sunucu (production):**
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+# Caddy → 127.0.0.1:8888 — bkz. docs/DEPLOYMENT-TR.md
+```
+
 Üç servis ayağa kalkar: `web` (Angular SSR), `api` (.NET 8 SignalR) ve `proxy`
 (nginx). nginx tek origin sunar; tarayıcı sohbete same-origin `/hubs/chat`
 üzerinden ulaşır (production'da CORS gerekmez). AI anahtarını `.env` ile geçin.

@@ -7,15 +7,22 @@ Ek olarak, aynı işleri **arayüzden** yapıp yapamayacağınızı özetler.
 
 ## Genel mimari
 
+**Canlı ortam** (`erenakgoz.dev`):
+
 ```
-Tarayıcı → http://SUNUCU_IP veya domain
+Tarayıcı → Cloudflare (DNS + CDN)
               ↓
-         nginx (proxy) :80
+         Caddy (:80 / :443, HTTPS)
+              ↓
+         nginx proxy (127.0.0.1:8888)
          ├── /           → Angular SSR (web)
          └── /hubs/chat  → .NET API (api)
 ```
 
-Üç Docker konteyneri birlikte çalışır: `web`, `api`, `proxy`.
+Üç Docker konteyneri birlikte çalışır: `web`, `api`, `proxy`.  
+Caddy, Coolify’ın 80/443 portlarını paylaşmamak için CV’yi **8888**’e bağlar; dış dünyaya sadece Caddy açıktır.
+
+**Lokal geliştirme:** `docker compose up` → `http://localhost:8080` (Caddy yok).
 
 ---
 
@@ -142,23 +149,34 @@ AI_CHAT_RATE_LIMIT_PER_HOUR=10
 
 ---
 
-## 7. HTTP portunu 80 yapma
+## 7. Production portu (8888, sadece localhost)
+
+Sunucuda CV’yi dışarıya doğrudan açmayın; Caddy trafiği iletsin. Repodaki production overlay bunu yapar:
 
 ```bash
-sed -i 's/"8080:8080"/"80:8080"/' docker-compose.yml
+# docker-compose.prod.yml → proxy: 127.0.0.1:8888:8080
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 ```
 
-| Ne yapar? | |
-|-----------|--|
-| `docker-compose.yml` | `proxy` (nginx) servisinin dış portunu **8080 → 80** yapar. |
-| Sonuç | `http://SUNUCU_IP` ile doğrudan site açılır (port yazmadan). |
+| Parça | Anlamı |
+|-------|--------|
+| `docker-compose.yml` | Temel servis tanımı (lokalde `8080:8080`) |
+| `docker-compose.prod.yml` | Sunucuda proxy’yi yalnızca `127.0.0.1:8888`’e bağlar |
+| `8888` | Caddy’nin yönlendirdiği iç port; dışarıdan erişilemez |
 
-`8080:8080` = dışarıdan 8080, konteyner içi 8080.  
-`80:8080` = dışarıdan 80 (standart web), konteyner içi 8080.
+Coolify aynı sunucuda 80/443 kullanıyorsa CV’yi 80’e bağlamayın; Caddy + 8888 düzeni bunun için var.
 
 ---
 
 ## 8. Siteyi build edip çalıştırma
+
+**Sunucu (production):**
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+```
+
+**Lokal (geliştirme):**
 
 ```bash
 docker compose up --build -d
@@ -178,12 +196,12 @@ docker compose up --build -d
 | `api` | .NET 8 + SignalR | AI chat, `/hubs/chat` |
 | `proxy` | nginx | Tek giriş noktası; `/` → web, `/hubs/` → api |
 
-Kontrol:
+Kontrol (sunucuda):
 
 ```bash
-docker compose ps          # çalışan servisler
-curl -I http://localhost/  # ana sayfa 200 mü?
-curl http://localhost/api/health  # API sağlık kontrolü
+docker compose ps
+curl -I http://127.0.0.1:8888/              # ana sayfa 200 mü?
+curl http://127.0.0.1:8888/api/health       # API sağlık kontrolü
 ```
 
 Log:
@@ -208,9 +226,12 @@ ufw enable
 | Kural | Ne işe yarar? |
 |-------|----------------|
 | `OpenSSH` (22) | SSH ile sunucuya bağlanmaya devam edersiniz. |
-| `80` | HTTP (site). |
-| `443` | HTTPS (domain + SSL sonrası). |
+| `80` | HTTP (Caddy; Cloudflare yönlendirmesi). |
+| `443` | HTTPS (Caddy). |
 | `ufw enable` | Kuralları aktif eder. |
+
+**8888’i firewall’da açmayın** — `docker-compose.prod.yml` proxy’yi zaten `127.0.0.1`’e bağlar.  
+Coolify paneli için `8000` açıksa güçlü şifre kullanın; mümkünse yalnızca kendi IP’nize kısıtlayın.
 
 Hetzner panelinde de **Firewalls** ile 22, 80, 443 açık olmalı.
 
@@ -219,11 +240,11 @@ Hetzner panelinde de **Firewalls** ile 22, 80, 443 açık olmalı.
 ## 10. Tarayıcıdan test
 
 ```
-http://167.233.118.211
-http://167.233.118.211?mode=scan
+https://erenakgoz.dev
+https://erenakgoz.dev?mode=scan
 ```
 
-AI chat, CV indirme ve bölümlerin görünmesi gerekir.
+AI chat, CV indirme ve bölümlerin görünmesi gerekir. İlk ziyarette (oturum başına bir kez) terminal boot intro görünebilir.
 
 ---
 
@@ -235,24 +256,52 @@ Lokalde değişiklik → GitHub’a push → sunucuda:
 cd /opt/CV
 git pull
 cp frontend/src/assets/data/cv.data.json backend/CvSite.Api/Data/cv.data.json
-docker compose up --build -d
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 ```
 
 | Adım | Neden? |
 |------|--------|
 | `git pull` | Yeni kodu çeker. |
 | `cp cv.data.json` | Frontend ve backend CV verisini senkron tutar. |
-| `docker compose up --build -d` | Değişiklikleri yeniden build edip yayınlar. |
+| `docker compose ... prod` | Production port bağlamasıyla yeniden build edip yayınlar. |
 
 ---
 
-## 12. Domain ve HTTPS (sonraki adım)
+## 12. Domain, Cloudflare ve Caddy
 
-1. Domain panelinde **A kaydı** → sunucu IP  
-2. Sunucuda **Caddy** veya **Certbot** ile ücretsiz SSL  
-3. `https://domainin.com` üzerinden erişim  
+### 12.1 Cloudflare DNS
 
-Detay için README ve bu dosyanın “İlgili dosyalar” bölümüne bakın.
+| Tip | Ad | İçerik | Proxy |
+|-----|-----|--------|-------|
+| A | `@` | `167.233.118.211` | Proxied (turuncu bulut) |
+| A | `www` | `167.233.118.211` | Proxied |
+
+### 12.2 Cloudflare SSL
+
+**SSL/TLS → Overview → Full** (Full strict değil; origin `tls internal` kullanıyor).
+
+### 12.3 Caddy kurulumu (sunucu)
+
+```bash
+apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
+apt update && apt install -y caddy
+
+cp /opt/CV/deploy/caddy/Caddyfile /etc/caddy/Caddyfile
+systemctl enable caddy && systemctl reload caddy
+```
+
+Caddy ne yapar? Domain + HTTPS’i karşılar, trafiği `127.0.0.1:8888`’deki nginx proxy’ye iletir. Coolify 80/443’ü kullanırken CV için aradaki köprüdür.
+
+### 12.4 Sorun giderme (521)
+
+Cloudflare **521** = origin’e ulaşamıyor. Kontrol listesi:
+
+1. `docker compose ... prod` çalışıyor mu?
+2. `curl -I http://127.0.0.1:8888/` → 200 mü?
+3. `systemctl status caddy` → active mi?
+4. Cloudflare SSL modu **Full** mi?
 
 ---
 
@@ -264,6 +313,8 @@ Detay için README ve bu dosyanın “İlgili dosyalar” bölümüne bakın.
 | `Connection refused` | Sunucu kapalı / reboot | Panelden Running bekle, 2–3 dk |
 | Git `Password authentication not supported` | GitHub şifre kabul etmiyor | Repo public yap veya Personal Access Token |
 | 502 Bad Gateway | nginx upstream hazır değil | `docker compose restart proxy` |
+| Cloudflare 521 | Caddy kapalı veya 443 dinlemiyor | `systemctl status caddy`; Caddyfile + `tls internal` |
+| CV önce, sonra boot ekranı | SSR + geç boot animasyonu | `index.html` boot-pending script (repoda güncel) |
 | AI cevap vermiyor | `.env` key yok/yanlış | `docker compose logs api` |
 
 ---
@@ -340,8 +391,12 @@ git clone https://github.com/HasanErenAkgoz/My_Resume.git CV
 cd CV
 nano .env   # OPENAI_API_KEY vb.
 
-sed -i 's/"8080:8080"/"80:8080"/' docker-compose.yml
-docker compose up --build -d
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+
+# Caddy + domain (bkz. Bölüm 12)
+apt install -y caddy
+cp deploy/caddy/Caddyfile /etc/caddy/Caddyfile
+systemctl enable caddy && systemctl reload caddy
 
 ufw allow OpenSSH && ufw allow 80 && ufw allow 443 && ufw enable
 ```
@@ -352,8 +407,10 @@ ufw allow OpenSSH && ufw allow 80 && ufw allow 443 && ufw enable
 
 | Dosya | Açıklama |
 |-------|----------|
-| `docker-compose.yml` | Üç servisin tanımı |
+| `docker-compose.yml` | Üç servisin tanımı (lokal: `8080`) |
+| `docker-compose.prod.yml` | Sunucu overlay (`127.0.0.1:8888`) |
 | `deploy/nginx.conf` | Reverse proxy, SignalR yönlendirmesi |
+| `deploy/caddy/Caddyfile` | Caddy domain + HTTPS şablonu |
 | `.env.example` | Ortam değişkeni şablonu |
 | `README.md` | Geliştirme ve Docker özeti |
 | `docs/COOLIFY-TR.md` | Coolify ile panelden deploy (git push = canlı) |
@@ -361,4 +418,4 @@ ufw allow OpenSSH && ufw allow 80 && ufw allow 443 && ufw enable
 
 ---
 
-*Son güncelleme: Hetzner CX23, Ubuntu 26.04, IP örneği: 167.233.118.211*
+*Son güncelleme: Hetzner CX23, Ubuntu 26.04, domain: erenakgoz.dev, IP: 167.233.118.211*

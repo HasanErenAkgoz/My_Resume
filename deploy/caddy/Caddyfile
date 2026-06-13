@@ -1,0 +1,8 @@
+# Copy to /etc/caddy/Caddyfile on the server.
+# Requires: apt install caddy && systemctl enable --now caddy
+# Cloudflare SSL/TLS mode: Full (not Full strict — uses tls internal).
+
+erenakgoz.dev, www.erenakgoz.dev {
+	reverse_proxy localhost:8888
+	tls internal
+}

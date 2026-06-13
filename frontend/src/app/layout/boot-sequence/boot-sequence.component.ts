@@ -1,4 +1,5 @@
-import { Component, afterNextRender, inject, signal } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID, inject, signal } from '@angular/core';
 import { LocaleService } from '../../core/services/locale.service';
 import { ScanModeService } from '../../core/services/scan-mode.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
@@ -151,13 +152,19 @@ export class BootSequenceComponent {
 
   private timers: ReturnType<typeof setTimeout>[] = [];
 
-  constructor() {
-    afterNextRender(() => this.maybeStart());
+  constructor(
+    @Inject(PLATFORM_ID) private readonly platformId: object,
+    @Inject(DOCUMENT) private readonly doc: Document,
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.maybeStart();
+    }
   }
 
   private maybeStart(): void {
     const alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1';
     if (alreadyShown || this.scan.isScanMode() || this.scan.prefersReducedMotion()) {
+      this.doc.documentElement.classList.remove('boot-pending');
       return;
     }
     sessionStorage.setItem(SESSION_KEY, '1');
@@ -189,6 +196,9 @@ export class BootSequenceComponent {
     this.timers.forEach(clearTimeout);
     this.timers = [];
     this.leaving.set(true);
-    setTimeout(() => this.visible.set(false), 600);
+    setTimeout(() => {
+      this.visible.set(false);
+      this.doc.documentElement.classList.remove('boot-pending');
+    }, 600);
   }
 }

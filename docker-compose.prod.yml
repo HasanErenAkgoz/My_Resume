@@ -1,0 +1,6 @@
+# Production overlay — use with: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# Binds the nginx proxy to localhost only; Caddy on :80/:443 forwards public traffic here.
+services:
+  proxy:
+    ports: !override
+      - "127.0.0.1:8888:8080"
