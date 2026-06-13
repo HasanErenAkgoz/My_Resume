@@ -15,13 +15,13 @@ const SUGGESTIONS: Record<'tr' | 'en', string[]> = {
     'Bu adayı 30 saniyede özetle',
     'En güçlü teknik becerileri neler?',
     'OpenAI ile hangi projeleri yaptı?',
-    'Müsaitlik durumu nedir?',
+    'Hangi teknolojilerde deneyimli?',
   ],
   en: [
     'Summarize this candidate in 30 seconds',
     'What are the strongest technical skills?',
     'Which projects used OpenAI?',
-    'What is the availability?',
+    'Which technologies is he experienced in?',
   ],
 };
 

@@ -10,6 +10,7 @@ export const UI = {
   lastRole: { tr: 'Son pozisyon', en: 'Current role' },
   availability: { tr: 'Müsaitlik', en: 'Availability' },
   workPreference: { tr: 'Çalışma tercihi', en: 'Work preference' },
+  coreStack: { tr: 'Temel Teknolojiler', en: 'Core Stack' },
   noticePeriod: { tr: 'İhbar süresi', en: 'Notice period' },
 
   navSummary: { tr: 'Özet', en: 'Summary' },

@@ -55,8 +55,8 @@ import { LocalizePipe, UiPipe } from '../../../core/i18n/localize.pipe';
             <span class="v">{{ cv.hrSignals.workPreference | loc: lang() }}</span>
           </li>
           <li>
-            <span class="k">{{ 'availability' | ui: lang() }}</span>
-            <span class="v hl">{{ cv.hrSignals.availability | loc: lang() }}</span>
+            <span class="k">{{ 'coreStack' | ui: lang() }}</span>
+            <span class="v">.NET · Angular</span>
           </li>
           @if (cv.hrSignals.salaryExpectation.tr) {
             <li>
