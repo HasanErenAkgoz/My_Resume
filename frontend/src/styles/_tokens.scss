@@ -1,0 +1,47 @@
+// ── Design tokens: "Mission Control × Holographic" ──────────────────────────
+:root {
+  // Backgrounds
+  --bg-0: #07060f;
+  --bg-1: #0d0a1f;
+  --bg-2: #14112b;
+  --surface: rgba(22, 18, 46, 0.55);
+  --surface-solid: #161230;
+
+  // Neon accents
+  --neon-cyan: #06d7f0;
+  --neon-magenta: #ff3df0;
+  --neon-purple: #a855f7;
+  --neon-green: #39ff9e;
+  --neon-amber: #ffb13d;
+
+  // Text
+  --text-0: #f4f2ff;
+  --text-1: #c4bfe6;
+  --text-2: #8c87ad;
+  --text-on-accent: #07060f;
+
+  // Borders & glow
+  --border-soft: rgba(168, 130, 255, 0.18);
+  --border-strong: rgba(6, 215, 240, 0.4);
+  --glow-cyan: 0 0 24px rgba(6, 215, 240, 0.35);
+  --glow-magenta: 0 0 24px rgba(255, 61, 240, 0.3);
+
+  // Typography
+  --font-display: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  // Spacing & radius
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --maxw: 1180px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+
+  // Motion
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.5s;
+
+  // Layout chrome
+  --header-h: 64px;
+}

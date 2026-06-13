@@ -1,0 +1,277 @@
+{
+  "profile": {
+    "name": "Hasan Eren Akgöz",
+    "photo": "/assets/images/profile.webp",
+    "initials": "HA",
+    "title": {
+      "tr": "Full Stack Yazılım Geliştiricisi · Yapay Zeka Entegrasyonu",
+      "en": "Full Stack Software Developer · AI Integration"
+    },
+    "summary": {
+      "tr": "4 yılı aşkın deneyime sahip Full Stack Yazılım Geliştiricisiyim. OpenAI API ve LLM tabanlı özellikleri kurumsal SaaS ve mobil platformlara entegre ediyorum. Ağırlıklı olarak .NET Core, Angular ve React Native ile kurumsal uygulamalar, SaaS platformları ve ERP sistemleri geliştiriyorum. RESTful API tasarımı, mikroservis mimarisi, Clean Code prensipleri ve Agile metodolojileri konusunda güçlü bir altyapıya sahibim.",
+      "en": "Full Stack Software Developer with 4+ years of experience. I integrate OpenAI API and LLM-based features into enterprise SaaS and mobile platforms. I build enterprise applications, SaaS platforms and ERP systems primarily with .NET Core, Angular and React Native. I have a strong foundation in RESTful API design, microservice architecture, Clean Code principles and Agile methodologies."
+    },
+    "contact": {
+      "email": "HasanErenAkgz@gmail.com",
+      "phone": "+90 538 837 88 54",
+      "linkedin": "https://linkedin.com/in/ErenAkgoz",
+      "github": "https://github.com/ErenAkgoz",
+      "location": { "tr": "İstanbul, Türkiye", "en": "Istanbul, Turkey" }
+    }
+  },
+  "hrSignals": {
+    "location": { "tr": "İstanbul, Türkiye", "en": "Istanbul, Turkey" },
+    "workPreference": { "tr": "Hibrit / Remote", "en": "Hybrid / Remote" },
+    "availability": { "tr": "2 hafta içinde", "en": "Available in 2 weeks" },
+    "noticePeriod": { "tr": "2 hafta", "en": "2 weeks" },
+    "workAuthorization": { "tr": "Türkiye", "en": "Turkey" },
+    "salaryExpectation": { "tr": null, "en": null },
+    "openToWork": true,
+    "yearsOfExperience": "4+"
+  },
+  "experience": [
+    {
+      "company": "Feedback4e",
+      "role": { "tr": "Yazılım Geliştiricisi", "en": "Software Developer" },
+      "period": { "tr": "Şubat 2025 – Devam Ediyor", "en": "Feb 2025 – Present" },
+      "start": "2025-02",
+      "current": true,
+      "location": { "tr": "İstanbul", "en": "Istanbul" },
+      "highlights": [
+        {
+          "tr": "360 derece geri bildirim, OKR takibi ve değerlendirme puanlama sistemleri dahil SaaS modülleri geliştiriyorum.",
+          "en": "Building SaaS modules including 360-degree feedback, OKR tracking and evaluation scoring systems."
+        },
+        {
+          "tr": "AngularJS ile dinamik kullanıcı arayüzleri tasarlıyor, .NET Web API ile RESTful API mimarisi oluşturuyorum.",
+          "en": "Designing dynamic UIs with AngularJS and building RESTful API architecture with .NET Web API."
+        },
+        {
+          "tr": "OpenAI API (GPT-4) entegrasyonu ile otomatik geri bildirim analizi, akıllı puanlama önerileri ve doğal dil tabanlı raporlama gibi yapay zeka destekli özellikler geliştiriyorum.",
+          "en": "Developing AI-powered features with OpenAI API (GPT-4): automated feedback analysis, smart scoring suggestions and natural-language reporting."
+        },
+        {
+          "tr": "Prompt engineering teknikleri uygulayarak LLM çıktılarını iş gereksinimlerine göre özelleştiriyor, AI özelliklerini mevcut .NET backend altyapısına entegre ediyorum.",
+          "en": "Applying prompt engineering to tailor LLM outputs to business needs and integrating AI features into the existing .NET backend."
+        },
+        {
+          "tr": "SignalR ile gerçek zamanlı bildirim altyapısı kuruyor ve tam yığın (full stack) geliştirme sorumluluğunu üstleniyorum.",
+          "en": "Building real-time notification infrastructure with SignalR and owning full-stack development responsibilities."
+        }
+      ],
+      "tech": [".NET Core", ".NET Web API", "AngularJS", "Entity Framework", "OpenAI API (GPT-4)", "SQL Server", "SignalR", "TypeScript", "JavaScript", "Prompt Engineering"]
+    },
+    {
+      "company": "RealSolutions Bilgi Teknolojileri",
+      "role": { "tr": "Yazılım Geliştiricisi", "en": "Software Developer" },
+      "period": { "tr": "Ekim 2022 – Ekim 2024", "en": "Oct 2022 – Oct 2024" },
+      "start": "2022-10",
+      "current": false,
+      "location": { "tr": "İstanbul", "en": "Istanbul" },
+      "highlights": [
+        {
+          "tr": "Realkom Tekstil ERP sistemi için Ölçüm Modülünün tasarımını, geliştirilmesini ve bakımını yürüttüm; konfeksiyon üretim süreçlerini uçtan uca yönettim.",
+          "en": "Led the design, development and maintenance of the Measurement Module for the Realkom Textile ERP, managing apparel production processes end to end."
+        },
+        {
+          "tr": "Modülü birden fazla ERP alt sistemiyle entegre ettim; paydaşlarla iş birliği yaparak özelleştirilmiş çözümler sundum.",
+          "en": "Integrated the module with multiple ERP subsystems and delivered customized solutions in collaboration with stakeholders."
+        },
+        {
+          "tr": "Kapsamlı test, hata ayıklama ve performans optimizasyonu gerçekleştirdim; Clean Architecture kalıplarını .NET Core ve Angular 18 ile uygulamaya koydum.",
+          "en": "Performed thorough testing, debugging and performance optimization; implemented Clean Architecture patterns with .NET Core and Angular 18."
+        },
+        {
+          "tr": "Modül mimarisini SOLID prensipleri doğrultusunda tasarladım; kod kalitesini ekip genelinde standart hale getirmek için pull request süreçlerine liderlik ettim.",
+          "en": "Designed the module architecture following SOLID principles and led pull request processes to standardize code quality across the team."
+        }
+      ],
+      "tech": [".NET Core", "ASP.NET MVC", "C#", "Angular 18", "Angular Material", "SQL Server", "Entity Framework", "Web API", "RESTful API", "Clean Architecture", "SOLID", "Git"]
+    },
+    {
+      "company": "Türkiye Basketbol Federasyonu",
+      "role": { "tr": "Yazılım Geliştiricisi", "en": "Software Developer" },
+      "period": { "tr": "Şubat 2022 – Ekim 2022", "en": "Feb 2022 – Oct 2022" },
+      "start": "2022-02",
+      "current": false,
+      "location": { "tr": "İstanbul", "en": "Istanbul" },
+      "highlights": [
+        {
+          "tr": "ASP.NET MVC kullanarak federasyon için Bilgi Yönetim Sistemi (IMS) geliştirdim ve kurum içi operasyonları dijitalleştirdim.",
+          "en": "Built an Information Management System (IMS) for the federation with ASP.NET MVC and digitized internal operations."
+        },
+        {
+          "tr": "TBF Akademi web sitesini monolitik MVC mimarisinden Angular ve RESTful API yapısına taşıyarak performans ve sürdürülebilirliği artırdım.",
+          "en": "Migrated the TBF Academy website from a monolithic MVC architecture to Angular and a RESTful API, improving performance and maintainability."
+        },
+        {
+          "tr": "Gereksinim analizinden yayınlamaya kadar tüm SDLC sürecini yönettim; çapraz fonksiyonlu ekiplerle iş birliği yaptım.",
+          "en": "Managed the full SDLC from requirements analysis to release and collaborated with cross-functional teams."
+        }
+      ],
+      "tech": ["ASP.NET MVC", ".NET Framework", "Angular", "TypeScript", "RESTful API", "SQL Server", "Entity Framework", "JavaScript", "HTML", "CSS", "Bootstrap"]
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "feedback4e-ai",
+      "title": { "tr": "GPT-4 ile Otomatik Geri Bildirim Analizi", "en": "Automated Feedback Analysis with GPT-4" },
+      "company": "Feedback4e",
+      "period": "2025",
+      "problem": {
+        "tr": "360 derece geri bildirim platformunda yöneticiler yüzlerce serbest metin geri bildirimini manuel okuyup puanlamak zorundaydı; bu süreç yavaş ve tutarsızdı.",
+        "en": "On a 360-degree feedback platform, managers had to manually read and score hundreds of free-text responses — a slow and inconsistent process."
+      },
+      "solution": {
+        "tr": "OpenAI GPT-4'ü .NET Web API arkasına entegre ettim. Prompt engineering ile geri bildirimleri özetleyen, duygu analizi yapan ve iş gereksinimlerine uygun puanlama önerileri üreten bir katman kurdum. Sonuçlar SignalR ile gerçek zamanlı olarak arayüze aktarıldı.",
+        "en": "Integrated OpenAI GPT-4 behind a .NET Web API. Using prompt engineering, I built a layer that summarizes feedback, performs sentiment analysis and produces scoring suggestions aligned with business rules. Results stream to the UI in real time via SignalR."
+      },
+      "impact": {
+        "tr": "Manuel inceleme süresi ciddi ölçüde azaldı, puanlama tutarlılığı arttı ve doğal dil tabanlı raporlama ile yöneticiler içgörülere çok daha hızlı ulaştı.",
+        "en": "Manual review time dropped significantly, scoring consistency improved, and natural-language reporting let managers reach insights far faster."
+      },
+      "tech": ["OpenAI GPT-4", ".NET Core", "Web API", "SignalR", "Prompt Engineering", "SQL Server"],
+      "metrics": [
+        { "label": { "tr": "Manuel inceleme", "en": "Manual review" }, "value": "↓" },
+        { "label": { "tr": "Gerçek zamanlı", "en": "Real-time" }, "value": "SignalR" },
+        { "label": { "tr": "Model", "en": "Model" }, "value": "GPT-4" }
+      ]
+    },
+    {
+      "id": "realsolutions-erp",
+      "title": { "tr": "Tekstil ERP Ölçüm Modülü", "en": "Textile ERP Measurement Module" },
+      "company": "RealSolutions",
+      "period": "2022–2024",
+      "problem": {
+        "tr": "Realkom Tekstil'in konfeksiyon üretim süreçleri birden fazla kopuk ERP alt sistemine dağılmıştı; ölçüm verileri tutarsız ve bakımı zordu.",
+        "en": "Realkom Textile's apparel production was spread across multiple disconnected ERP subsystems; measurement data was inconsistent and hard to maintain."
+      },
+      "solution": {
+        "tr": "Clean Architecture ve SOLID prensipleriyle .NET Core + Angular 18 üzerinde uçtan uca bir Ölçüm Modülü tasarladım. Modülü mevcut ERP alt sistemleriyle entegre ettim ve pull request süreçleriyle ekip kod kalitesini standartlaştırdım.",
+        "en": "Designed an end-to-end Measurement Module on .NET Core + Angular 18 using Clean Architecture and SOLID. Integrated it with existing ERP subsystems and standardized team code quality through pull request processes."
+      },
+      "impact": {
+        "tr": "Üretim süreçleri uçtan uca tek modülde toplandı, performans optimizasyonlarıyla hızlandı ve sürdürülebilir, test edilebilir bir kod tabanı oluştu.",
+        "en": "Production processes were unified into a single end-to-end module, accelerated through performance optimization, with a maintainable and testable codebase."
+      },
+      "tech": [".NET Core", "Angular 18", "Clean Architecture", "SOLID", "Entity Framework", "SQL Server"],
+      "metrics": [
+        { "label": { "tr": "Mimari", "en": "Architecture" }, "value": "Clean" },
+        { "label": { "tr": "ERP entegrasyonu", "en": "ERP integration" }, "value": "Multi" },
+        { "label": { "tr": "Süre", "en": "Duration" }, "value": "2y" }
+      ]
+    },
+    {
+      "id": "tbf-migration",
+      "title": { "tr": "MVC'den Angular'a Migrasyon", "en": "MVC to Angular Migration" },
+      "company": "Türkiye Basketbol Federasyonu",
+      "period": "2022",
+      "problem": {
+        "tr": "TBF Akademi web sitesi monolitik ASP.NET MVC mimarisindeydi; bakımı zor, yavaş ve modern istemci ihtiyaçlarına kapalıydı.",
+        "en": "The TBF Academy website ran on a monolithic ASP.NET MVC architecture — hard to maintain, slow and closed to modern client needs."
+      },
+      "solution": {
+        "tr": "Siteyi kademeli olarak Angular SPA + RESTful API mimarisine taşıdım. Sunucu tarafı render edilen monolit yerine ayrık bir frontend ve yeniden kullanılabilir API katmanı kurdum; tüm SDLC sürecini yönettim.",
+        "en": "Incrementally migrated the site to an Angular SPA + RESTful API architecture. Replaced the server-rendered monolith with a decoupled frontend and reusable API layer, owning the full SDLC."
+      },
+      "impact": {
+        "tr": "Sayfa performansı ve sürdürülebilirlik belirgin şekilde arttı; yeni özellikler artık bağımsız frontend ve API ekipleriyle çok daha hızlı geliştirilebilir hale geldi.",
+        "en": "Page performance and maintainability improved markedly; new features can now be shipped far faster with independent frontend and API workstreams."
+      },
+      "tech": ["ASP.NET MVC", "Angular", "TypeScript", "RESTful API", "Entity Framework", "SQL Server"],
+      "metrics": [
+        { "label": { "tr": "Mimari", "en": "Architecture" }, "value": "SPA" },
+        { "label": { "tr": "Performans", "en": "Performance" }, "value": "↑" },
+        { "label": { "tr": "SDLC", "en": "SDLC" }, "value": "E2E" }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": { "tr": "Yapay Zeka", "en": "Artificial Intelligence" },
+      "icon": "sparkles",
+      "items": [
+        { "name": "OpenAI API (GPT-4)", "level": 88 },
+        { "name": "LLM Entegrasyonu", "level": 85 },
+        { "name": "Prompt Engineering", "level": 85 },
+        { "name": "AI Destekli Özellikler", "level": 82 }
+      ]
+    },
+    {
+      "category": { "tr": "Backend", "en": "Backend" },
+      "icon": "server",
+      "items": [
+        { "name": ".NET Core", "level": 92 },
+        { "name": "ASP.NET MVC", "level": 88 },
+        { "name": "C#", "level": 90 },
+        { "name": "Web API", "level": 90 },
+        { "name": "SignalR", "level": 80 }
+      ]
+    },
+    {
+      "category": { "tr": "Frontend", "en": "Frontend" },
+      "icon": "layout",
+      "items": [
+        { "name": "Angular (v18)", "level": 90 },
+        { "name": "AngularJS", "level": 80 },
+        { "name": "React Native", "level": 72 },
+        { "name": "TypeScript", "level": 88 },
+        { "name": "HTML5 / CSS3", "level": 88 }
+      ]
+    },
+    {
+      "category": { "tr": "Veritabanı", "en": "Database" },
+      "icon": "database",
+      "items": [
+        { "name": "SQL Server", "level": 88 },
+        { "name": "Entity Framework", "level": 86 },
+        { "name": "Redis", "level": 70 }
+      ]
+    },
+    {
+      "category": { "tr": "Mimari", "en": "Architecture" },
+      "icon": "blocks",
+      "items": [
+        { "name": "Clean Architecture", "level": 86 },
+        { "name": "Mikroservis", "level": 80 },
+        { "name": "CQRS", "level": 75 },
+        { "name": "SOLID", "level": 88 }
+      ]
+    },
+    {
+      "category": { "tr": "DevOps & Bulut", "en": "DevOps & Cloud" },
+      "icon": "cloud",
+      "items": [
+        { "name": "Docker", "level": 78 },
+        { "name": "Microsoft Azure", "level": 76 },
+        { "name": "Git", "level": 88 }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": { "tr": "Lisans", "en": "Bachelor's" },
+      "field": { "tr": "Yönetim Bilgi Sistemleri (Açıköğretim)", "en": "Management Information Systems (Open Education)" },
+      "school": { "tr": "Anadolu Üniversitesi", "en": "Anadolu University" },
+      "period": { "tr": "Ekim 2022 – Devam Ediyor", "en": "Oct 2022 – Present" }
+    },
+    {
+      "degree": { "tr": "Ön Lisans", "en": "Associate's" },
+      "field": { "tr": "Bilgisayar Programcılığı", "en": "Computer Programming" },
+      "school": { "tr": "Doğuş Üniversitesi", "en": "Doğuş University" },
+      "period": { "tr": "Eylül 2020 – Haziran 2022", "en": "Sep 2020 – Jun 2022" }
+    },
+    {
+      "degree": { "tr": "Teknik Lise", "en": "Technical High School" },
+      "field": { "tr": "Bilgisayar Bilimi", "en": "Computer Science" },
+      "school": { "tr": "Sancaktepe 75. Yıl DMO Teknik Anadolu Lisesi", "en": "Sancaktepe 75. Yıl DMO Technical High School" },
+      "period": { "tr": "Eylül 2015 – Haziran 2019", "en": "Sep 2015 – Jun 2019" }
+    }
+  ],
+  "certificates": [],
+  "languages": [
+    { "name": { "tr": "Türkçe", "en": "Turkish" }, "level": { "tr": "Ana Dil", "en": "Native" } },
+    { "name": { "tr": "İngilizce", "en": "English" }, "level": { "tr": "Orta Seviye (B1)", "en": "Intermediate (B1)" } }
+  ],
+  "testimonials": []
+}

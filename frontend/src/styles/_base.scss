@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-1);
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(168, 130, 255, 0.16), transparent 60%),
+    radial-gradient(1000px 700px at 100% 0%, rgba(6, 215, 240, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--text-0);
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+}
+h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+a:hover {
+  color: var(--neon-magenta);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+// Section heading with terminal prompt accent
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+.section-title::before {
+  content: '>';
+  color: var(--neon-green);
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+}
+.section-sub {
+  color: var(--text-2);
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+// Tech chips
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.28em 0.7em;
+  border-radius: 999px;
+  color: var(--text-1);
+  background: rgba(6, 215, 240, 0.08);
+  border: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+// Reveal-on-scroll baseline (JS adds .in-view)
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}

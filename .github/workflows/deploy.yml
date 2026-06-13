@@ -1,0 +1,90 @@
+name: CI / Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build (SSR + prerender)
+        run: npm run build
+
+      - name: Smoke test
+        run: |
+          PORT=4000 node dist/frontend/server/server.mjs &
+          SERVER_PID=$!
+          sleep 6
+          curl -fsS -o /dev/null "http://localhost:4000/" || { echo "Home failed"; exit 1; }
+          curl -fsS -o /dev/null "http://localhost:4000/?mode=scan" || { echo "Scan mode failed"; exit 1; }
+          curl -fsS -o /dev/null "http://localhost:4000/robots.txt" || { echo "robots failed"; exit 1; }
+          kill $SERVER_PID
+          echo "Smoke test passed"
+
+      - name: Upload artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ssr-bundle
+          path: frontend/dist/frontend
+
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/CvSite.Api
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore + build (.NET 8 API)
+        run: dotnet build -c Release
+
+      - name: Smoke test (health + SignalR negotiate)
+        run: |
+          ASPNETCORE_URLS=http://localhost:5080 dotnet run -c Release --no-launch-profile &
+          API_PID=$!
+          sleep 8
+          curl -fsS -o /dev/null "http://localhost:5080/api/health" || { echo "health failed"; exit 1; }
+          curl -fsS -o /dev/null -X POST "http://localhost:5080/hubs/chat/negotiate?negotiateVersion=1" || { echo "negotiate failed"; exit 1; }
+          kill $API_PID
+          echo "Backend smoke test passed"
+
+  deploy:
+    needs: [build, backend]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ssr-bundle
+          path: dist/frontend
+
+      # Configure these in the repo's Settings → Secrets and the Azure Web App.
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: hasaneren-cv
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: dist/frontend

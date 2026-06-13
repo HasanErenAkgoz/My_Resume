@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.angular/
+.env
+*.log
+.DS_Store
+
+# .NET
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
