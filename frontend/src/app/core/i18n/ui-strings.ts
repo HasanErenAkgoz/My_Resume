@@ -14,6 +14,11 @@ export const UI = {
   noticePeriod: { tr: 'İhbar süresi', en: 'Notice period' },
 
   navSummary: { tr: 'Özet', en: 'Summary' },
+  navHello: { tr: 'Özet', en: 'Summary' },
+  navAbout: { tr: 'Deneyim', en: 'Experience' },
+  navProjects: { tr: 'Projeler', en: 'Projects' },
+  navSkillsNav: { tr: 'Yetkinlikler', en: 'Skills' },
+  navContactNav: { tr: 'İletişim', en: 'Contact' },
   navCases: { tr: 'Öne Çıkan Projeler', en: 'Featured Projects' },
   navExperience: { tr: 'Deneyim', en: 'Experience' },
   navSkills: { tr: 'Yetkinlikler', en: 'Skills' },
@@ -44,6 +49,19 @@ export const UI = {
   viewLinkedin: { tr: 'LinkedIn', en: 'LinkedIn' },
   viewGithub: { tr: 'GitHub', en: 'GitHub' },
   callMe: { tr: 'Telefon', en: 'Phone' },
+
+  heroHeadlineLead: {
+    tr: '.NET · Angular · OpenAI ile',
+    en: 'With .NET · Angular · OpenAI —',
+  },
+  heroHeadlineAccent: { tr: 'kurumsal ve AI projeler geliştiriyorum.', en: 'I build enterprise and AI products.' },
+  heroCodeLine: { tr: "> stack = ['.NET', 'Angular', 'OpenAI'];", en: "> stack = ['.NET', 'Angular', 'OpenAI'];" },
+  viewProjects: { tr: 'Projeleri Gör', en: 'View Projects' },
+  statYears: { tr: 'Yıl Deneyim', en: 'Years Experience' },
+  statProjects: { tr: 'Öne Çıkan Proje', en: 'Featured Projects' },
+  statTech: { tr: 'Teknoloji', en: 'Technologies' },
+  statPassion: { tr: 'Tutku', en: 'Passion' },
+  statPassionValue: { tr: 'İşe açık', en: 'Open to work' },
 
   reposPublic: { tr: 'Public repo', en: 'Public repos' },
   followers: { tr: 'Takipçi', en: 'Followers' },

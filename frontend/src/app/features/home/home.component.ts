@@ -35,7 +35,11 @@ import { ContactComponent } from './sections/contact.component';
   styles: [
     `
       .sec-hero {
-        padding-top: 0;
+        padding: 0;
+        min-height: calc(100svh - var(--header-h) - 3px);
+      }
+      #cases {
+        padding-top: clamp(1.25rem, 3vw, 2rem);
       }
     `,
   ],
