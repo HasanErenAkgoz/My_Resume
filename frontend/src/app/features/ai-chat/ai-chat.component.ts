@@ -47,8 +47,11 @@ const SUGGESTIONS: Record<'tr' | 'en', string[]> = {
     @if (ui.chatOpen()) {
       <div class="panel glass no-print" role="dialog" aria-label="AI assistant">
         <header class="bar mono">
+          <button type="button" class="back" (click)="close()" [attr.aria-label]="backLabel">
+            ← {{ backLabel }}
+          </button>
           <span class="t"><span class="dot"></span> ai_assistant.sh</span>
-          <button type="button" class="x" (click)="ui.chatOpen.set(false)" aria-label="Close">✕</button>
+          <button type="button" class="x" (click)="close()" [attr.aria-label]="closeLabel">✕</button>
         </header>
 
         <div class="log" #log>
@@ -136,11 +139,33 @@ const SUGGESTIONS: Record<'tr' | 'en', string[]> = {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 0.5rem;
         padding: 0.7rem 0.9rem;
         border-bottom: 1px solid var(--border-soft);
         background: rgba(255, 255, 255, 0.03);
       }
+      .back {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2rem;
+        background: rgba(6, 215, 240, 0.08);
+        border: 1px solid var(--border-soft);
+        border-radius: 999px;
+        color: var(--text-1);
+        cursor: pointer;
+        font-size: 0.78rem;
+        padding: 0.35rem 0.65rem;
+        white-space: nowrap;
+      }
+      .back:hover {
+        border-color: var(--border-strong);
+        color: var(--neon-cyan);
+      }
       .t {
+        flex: 1;
+        min-width: 0;
+        justify-content: center;
         color: var(--text-1);
         font-size: 0.85rem;
         display: flex;
@@ -281,10 +306,22 @@ export class AiChatComponent {
       ? 'KVKK: Sohbet içeriği kalıcı olarak saklanmaz; yalnızca yanıt üretmek için işlenir.'
       : 'Privacy: Chat content is not stored permanently; processed only to generate a reply.';
   }
+  get backLabel(): string {
+    return this.lang() === 'tr' ? 'Geri' : 'Back';
+  }
+  get closeLabel(): string {
+    return this.lang() === 'tr' ? 'Kapat' : 'Close';
+  }
 
   open(): void {
     this.ui.openChat();
     this.analytics.track('ai_chat_open');
+  }
+
+  close(): void {
+    if (this.streaming()) return;
+    this.ui.chatOpen.set(false);
+    this.analytics.track('ai_chat_close');
   }
 
   ask(text: string): void {

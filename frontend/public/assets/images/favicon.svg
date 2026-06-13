@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HEA">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="HEA">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="g" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#06d7f0"/>
       <stop offset="1" stop-color="#a855f7"/>
     </linearGradient>
   </defs>
-  <rect x="3" y="3" width="58" height="58" rx="14" fill="#07060f" stroke="url(#g)" stroke-width="3"/>
-  <text x="32" y="42" text-anchor="middle" font-family="'Rajdhani','Segoe UI',sans-serif"
-        font-size="26" font-weight="700" fill="url(#g)">HEA</text>
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="#07060f" stroke="url(#g)" stroke-width="2"/>
+  <path d="M9 9v14M9 16h6M15 9v14" fill="none" stroke="url(#g)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="22.5" cy="11" r="2.2" fill="#06d7f0"/>
+  <circle cx="24.5" cy="21" r="1.6" fill="#a855f7" opacity="0.9"/>
+  <path d="M22.5 13.2v3.2M22.5 16.4c0 1.6 1.2 2.4 2.4 2.4" fill="none" stroke="#06d7f0" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
 </svg>

@@ -11,7 +11,8 @@ export type AnalyticsEvent =
   | 'section_view'
   | 'contact_click'
   | 'skip_boot'
-  | 'ai_chat_open';
+  | 'ai_chat_open'
+  | 'ai_chat_close';
 
 /**
  * Privacy-first, consent-gated analytics facade.
