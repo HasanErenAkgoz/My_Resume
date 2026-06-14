@@ -110,7 +110,9 @@ import { LocalizePipe, UiPipe } from '../../core/i18n/localize.pipe';
         display: flex;
         flex-direction: column;
         gap: 0.1rem;
+        flex: 1 1 0;
         min-width: 0;
+        overflow: hidden;
         text-decoration: none;
       }
       .brand-name {
@@ -121,6 +123,8 @@ import { LocalizePipe, UiPipe } from '../../core/i18n/localize.pipe';
         text-transform: uppercase;
         text-shadow: 0 0 16px rgba(6, 215, 240, 0.35);
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .brand-role {
         font-size: 0.72rem;
@@ -225,11 +229,16 @@ import { LocalizePipe, UiPipe } from '../../core/i18n/localize.pipe';
       }
       @media (max-width: 540px) {
         .cv-btn {
-          padding: 0.5rem 0.7rem;
+          display: none;
         }
         .brand-name {
-          font-size: 0.85rem;
-          letter-spacing: 0.08em;
+          font-size: 0.82rem;
+          letter-spacing: 0.06em;
+        }
+      }
+      @media (max-width: 380px) {
+        .toggle.scan {
+          display: none;
         }
       }
     `,
